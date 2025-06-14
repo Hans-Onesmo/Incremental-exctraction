@@ -22,7 +22,7 @@ Data Transformations:
   - Enrichment: Adds calculated fields (attendance rate, weekday, school level)
   - Structural: Standardizes column names and data types
 
-#Transformation Details
+# Transformation Details
 Cleaning Transformations
 Handles missing values by:
 Using median for enrollment numbers
@@ -37,22 +37,22 @@ Categorizes schools by level based on DBN code:
 'K': Elementary School
 'X': High School
 
-#Structural Transformations
+# Structural Transformations
 Standardizes column names (spaces to underscores)
 Converts data types:
 School DBN to string
 Dates to datetime objects
 Reorders columns logically
 
-#Output Files
+# Output Files
 transformed_full.csv:
 Contains all historical data with transformations applied
 Columns: School_DBN, School_Level, Date, Weekday, Enrolled, Present, Absent, Attendance_Rate, Released, last_updated
 
-#transformed_incremental.csv:
+# transformed_incremental.csv:
 Contains only new/updated records since last run
 Same schema as full transformed file
 
-#Maintenance
+# Maintenance
 last_extraction.txt: Automatically updated after each incremental run
 The system maintains data consistency between full and incremental loads
