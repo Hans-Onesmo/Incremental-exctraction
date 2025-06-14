@@ -8,3 +8,16 @@ Python (with Pandas for data manipulation and analysis, and datetime libraries f
 Install the required packages using pip install pandas, clone the repository using git clone, launch the Jupyter Notebook, and execute all the cells in sequence.
 # Data
 The notebook generates synthetic data (school_attendance.csv), simulating daily attendance for 5 schools over a 3-month period, excluding weekends, with realistic daily variations in enrollment and absences.
+
+# School Attendance ETL Pipeline
+
+# Overview
+This project implements a complete ETL (Extract, Transform, Load) pipeline for school attendance data. It processes both full datasets and incremental updates, applying data cleaning, enrichment, and structural transformations to prepare the data for analysis.
+
+# Features
+Full Data Extraction: Loads complete historical dataset
+Incremental Extraction: Efficiently processes only new/updated records
+Data Transformations:
+  - Cleaning: Handles missing values, removes duplicates
+  - Enrichment: Adds calculated fields (attendance rate, weekday, school level)
+  - Structural: Standardizes column names and data types
