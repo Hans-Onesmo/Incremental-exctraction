@@ -56,3 +56,48 @@ Same schema as full transformed file
 # Maintenance
 last_extraction.txt: Automatically updated after each incremental run
 The system maintains data consistency between full and incremental loads
+
+# Lab 5
+# ETL Load
+This Jupyter notebook implements the Load stage of the ETL (Extract, Transform, Load) pipeline for school attendance data. It focuses on saving transformed data into an efficient Parquet format, ready for analysis and reuse.
+
+# Key Sights:
+- Converts full and incremental transformed CSVs into Parquet format
+- Uses compact columnar storage for speed and reduced size
+- Includes preview steps to confirm successful data loading
+- Separates output files for full and incremental loads
+
+# Tools:
+Python (with Pandas and pyarrow) provides an efficient way to handle structured data loading. The Parquet format ensures storage optimization and quick access in analytical workflows.
+
+# Run codes
+Install required packages using pip install pandas pyarrow. Clone the repository, ensure loaded_data/ directory exists, then open the notebook and run all cells in order.
+
+# Data
+Reads from:
+transformed_full.csv – entire historical dataset  
+transformed_incremental.csv – only new or changed records
+
+# School Attendance ETL Pipeline – Load Phase
+
+# Overview
+This notebook finalizes the ETL process by writing clean and enriched data into Parquet format for long-term storage and analysis. Both full and incremental datasets are saved in structured form.
+
+# Load Details
+Full Data Load:
+Saves all transformed records to full_data.parquet
+
+Incremental Load:
+Saves only recent changes to incremental_data.parquet
+
+Verification:
+Each saved file is reloaded and previewed using .head() to confirm success
+
+# Output Files
+loaded_data/full_data.parquet  
+loaded_data/incremental_data.parquet
+
+# Maintenance
+This phase ensures transformed data is stored safely and efficiently. It can be repeated whenever updated CSVs are available from the transformation stage.
+
+
