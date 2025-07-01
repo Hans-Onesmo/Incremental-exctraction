@@ -58,44 +58,43 @@ last_extraction.txt: Automatically updated after each incremental run
 The system maintains data consistency between full and incremental loads
 
 # Lab 5
-# ETL Load
-This Jupyter notebook implements the Load stage of the ETL (Extract, Transform, Load) pipeline for school attendance data. It focuses on saving transformed data into an efficient Parquet format, ready for analysis and reuse.
+# ETL Load Hans Onesmo  
+This Jupyter notebook implements the Load phase of the ETL (Extract, Transform, Load) pipeline for processing school attendance data. It focuses on storing the transformed data efficiently for future analysis and reporting.
 
-# Key Sights:
-- Converts full and incremental transformed CSVs into Parquet format
-- Uses compact columnar storage for speed and reduced size
-- Includes preview steps to confirm successful data loading
-- Separates output files for full and incremental loads
+# Key sights:  
+The notebook loads both the full and incremental transformed datasets from CSV format and converts them into Parquet files. Parquet is a compact, high-performance columnar format ideal for analytics. The notebook also includes verification steps to confirm that the files were saved successfully.
 
-# Tools:
-Python (with Pandas and pyarrow) provides an efficient way to handle structured data loading. The Parquet format ensures storage optimization and quick access in analytical workflows.
+# Tools:  
+Python (with Pandas for reading and writing structured data, and pyarrow for Parquet support) is used to build the loading workflow. These tools offer speed and efficiency in storing data for downstream applications.
 
-# Run codes
-Install required packages using pip install pandas pyarrow. Clone the repository, ensure loaded_data/ directory exists, then open the notebook and run all cells in order.
+# Run codes  
+Install the required packages using pip install pandas pyarrow, clone the repository using git clone, ensure the loaded_data directory exists, launch the Jupyter Notebook, and execute all the cells in sequence.
 
-# Data
-Reads from:
-transformed_full.csv – entire historical dataset  
-transformed_incremental.csv – only new or changed records
+# Data  
+The notebook reads from two transformed CSV files generated during the transformation phase:  
+transformed_full.csv – the full historical dataset  
+transformed_incremental.csv – only new or updated records since the last extraction
 
 # School Attendance ETL Pipeline – Load Phase
 
-# Overview
-This notebook finalizes the ETL process by writing clean and enriched data into Parquet format for long-term storage and analysis. Both full and incremental datasets are saved in structured form.
+# Overview  
+This notebook implements the final step of the ETL pipeline. It takes cleaned and enriched attendance data and writes it into a structured columnar format using Parquet. This prepares the data for efficient access, querying, and long-term storage.
 
-# Load Details
-Full Data Load:
-Saves all transformed records to full_data.parquet
+# Load Process  
+Full Data Load: Saves all records into full_data.parquet  
+Incremental Data Load: Saves only new/updated records into incremental_data.parquet  
+Verification: After writing, the files are read back and displayed using .head() to ensure correctness
 
-Incremental Load:
-Saves only recent changes to incremental_data.parquet
+# Output Files  
+loaded_data/full_data.parquet:  
+Contains the entire historical dataset in Parquet format  
 
-Verification:
-Each saved file is reloaded and previewed using .head() to confirm success
+loaded_data/incremental_data.parquet:  
+Contains only the new or updated records in Parquet format  
 
-# Output Files
-loaded_data/full_data.parquet  
-loaded_data/incremental_data.parquet
+# Maintenance  
+This load process ensures all transformed data is safely stored in a high-performance format. The notebook is reusable and can be re-run any time new transformed data becomes available.
+
 
 # Maintenance
 This phase ensures transformed data is stored safely and efficiently. It can be repeated whenever updated CSVs are available from the transformation stage.
